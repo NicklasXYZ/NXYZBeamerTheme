@@ -1,0 +1,29 @@
+\defbeamertemplate*{title page}{NicklasXYZ}{
+    \vfill
+    {
+        \centering
+        \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle
+        \par
+    }
+    \vskip 1cm
+    {
+        \centering
+        \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+        \par
+    }
+    \vfill
+}
+
+\setbeamercolor{enumerate item}{fg=NicklasXYZ-green!75!white}
+\setbeamercolor{description item}{fg=white}
+\setbeamercolor{itemize item}{fg=white}
+\setbeamertemplate{description item}{\color{NicklasXYZ-green!75!white}\hspace{0.25cm}\insertdescriptionitem}
+\setbeamertemplate{itemize item}{\color{NicklasXYZ-green!75!white}$\blacksquare$}
+
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{subsection in toc}[square]
+
+\setbeamercolor{section in toc}{fg=black}
+\setbeamercolor{subsection in toc}{fg=black}
+\setbeamercolor{section number projected}{bg=NicklasXYZ-green!75!white, fg=white}
+\setbeamercolor{subsection number projected}{bg=light-grey, fg=white}

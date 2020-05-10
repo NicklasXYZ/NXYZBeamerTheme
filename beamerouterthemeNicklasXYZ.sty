@@ -1,0 +1,85 @@
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\pgfplotsset{%
+    colormap={cleanslate}{%
+      rgb255=(255,255,255)%
+      rgb255=(0,0,0)%
+    },%
+}%
+
+\newlength{\marginedPaperWidth}{\paperwidth - 0.25cm}
+
+\setbeamertemplate{title page}{%
+    %
+    \begin{beamercolorbox}[wd=\paperwidth, ht=0.0cm]{titlepage}%
+        \begin{tikzpicture}%
+            \useasboundingbox(0, 0) rectangle(\the\paperwidth, 1.25);%
+            {\usebeamercolor[fg]{title}}%
+            \fill[color=frametitle-left.fg] (0.25, 0) rectangle(\the\marginedPaperWidth, 1.25);%
+            \ifx\insertsubtitle\@empty%
+                {%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0,   0.0) {\usebeamerfont{title}\inserttitle};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -1.50) {\usebeamerfont{author}\insertauthor};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -2.00) {\usebeamerfont{institute}\insertinstitute};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -3.50) {\usebeamerfont{date}\insertdate};%
+                }%
+            \else%
+                {%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0,  0.33) {\usebeamerfont{title}\inserttitle};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -0.33) {\usebeamerfont{subtitle} .::. \insertsubtitle};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -1.50) {\usebeamerfont{author}\insertauthor};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -2.00) {\usebeamerfont{institute}\insertinstitute};%
+                \node[anchor=west, xshift=2.5mm, yshift=4.75mm] at (0.0, -3.50) {\usebeamerfont{date}\insertdate};%
+                }%
+            \fi%
+        \end{tikzpicture}%
+    \end{beamercolorbox}%
+    %
+    \begin{tikzpicture}[remember picture, overlay, shift=(current page.south west), xshift=50mm, yshift=0mm]%
+        \begin{scope}[x={(current page.south east)}, y={(current page.north west)}], z={(current page.north)}]%
+            \begin{axis}[anchor = origin, rotate around={10:(current axis.origin)}, width=\the\paperwidth * 1.25, height=\the\paperheight * 1.75, hide axis, colormap name=cleanslate]%
+                \addplot3[mesh, samples=30, domain=-15:170, restrict y to domain=-15:100]{sin(x) * sin(y)};%
+            \end{axis}%
+        \end{scope}%
+    \end{tikzpicture}%
+}%
+
+\defbeamertemplate*{frametitle}{NicklasXYZ}[1][]{%
+    \vskip0.5cm%
+    \begin{beamercolorbox}[wd=\paperwidth, ht=0.9933cm]{frametitle}%
+        \begin{tikzpicture}%
+            \useasboundingbox(0, 0) rectangle(\the\paperwidth, 1.25);%
+            {\usebeamercolor[fg]{frametitle-left}}%
+            \fill[color=frametitle-left.fg] (0.25, 0) rectangle (\the\marginedPaperWidth, 1.25);%
+            \ifx\insertframesubtitle\@empty%
+                {%
+                \node[anchor=west, xshift=2.5mm, yshift=6.20mm] at (0.0, 0.0) {\usebeamerfont{frametitle}\insertframetitle};%
+                }%
+            \else%
+                {%
+                \node[anchor=west, xshift=2.5mm, yshift=6.00mm] at (0.0,  0.165) {\usebeamerfont{frametitle}\insertframetitle};%
+                \node[anchor=west, xshift=2.5mm, yshift=6.00mm] at (0.2, -0.33) {\usebeamerfont{framesubtitle}- \insertframesubtitle};%
+                }%
+            \fi%
+          \end{tikzpicture}%
+  \end{beamercolorbox}%
+}%
+
+\setbeamertemplate{footline}{%
+    \hbox{%
+        \begin{tikzpicture}[overlay, remember picture]%
+            \useasboundingbox(0, 0) rectangle (\the\paperwidth, 1.25);%
+            {\usebeamercolor[fg]{frametitle-left}}%
+            \fill[color=frametitle-left.fg] (\the\paperwidth, 0) rectangle (0, 0.35);%
+        \end{tikzpicture}%
+        \begin{beamercolorbox}[wd=.70\paperwidth, ht=3.50ex, left, leftskip=2ex]{author in head/foot}%
+            \vbox to3.50ex{\vfil\hbox{\usebeamerfont{title in head/foot}\insertshorttitle{}~~.::.~~\insertshortauthor}\vfil}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=0.20\paperwidth, ht=3.50ex, center]{date in head/foot}%
+            \vbox to3.50ex{\vfil\hbox{\usebeamerfont{date in head/foot}\insertshortdate{}}\vfil}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.10\paperwidth, ht=3.50ex, right, rightskip=2ex]{date in head/foot}%
+            \vbox to3.50ex{\vfil\hbox{\insertframenumber{} / \inserttotalframenumber}\vfil}%
+        \end{beamercolorbox}%
+    }%
+}%
