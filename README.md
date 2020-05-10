@@ -2,11 +2,11 @@
 
 Just a simple and minimalistic beamer theme with a few custom elements created with the LaTeX packages PGFPlots and TikZ.
 
-# Preview
+## Preview
 
 ![](preview/main.gif)
 
-# Usage 
+## Usage 
 
 Simply download the `.sty` files contained in this repository and include them in the preamble of the LaTeX beamer, by specifying the theme as follows:
 
