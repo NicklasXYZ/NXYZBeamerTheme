@@ -25,7 +25,7 @@ Simply download the `.sty` files contained in this repository and include them i
 \usetheme[red]{NXYZ}     % Red theme 
 % \usetheme[black]{NXYZ} % Black theme
 % \usetheme[blue]{NXYZ}  % Blue theme
-% \usetheme[green]{NXYZ} % Blue theme
+% \usetheme[green]{NXYZ} % Green theme
 ```
 
 See the example document `main.tex` for reference and more details.
