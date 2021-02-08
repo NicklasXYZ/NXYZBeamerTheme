@@ -1,0 +1,49 @@
+\mode<presentation>
+
+% Determine color settings
+\newif\if@colorOptionBlack
+\@colorOptionBlackfalse
+\DeclareOption{black}{\@colorOptionBlacktrue}
+
+\newif\if@colorOptionBlue
+\@colorOptionBluefalse
+\DeclareOption{blue}{\@colorOptionBluetrue}
+
+\newif\if@colorOptionGreen
+\@colorOptionGreenfalse
+\DeclareOption{green}{\@colorOptionGreentrue}
+
+\newif\if@colorOptionRed
+\@colorOptionRedfalse
+\DeclareOption{red}{\@colorOptionRedtrue}
+
+% Set the default color option to 'red'
+\ExecuteOptions{red}
+
+% Process options...
+\ProcessOptions\relax
+\if@colorOptionBlack
+    \usecolortheme{BlackNXYZ}
+\else
+    \if@colorOptionBlue
+        \usecolortheme{BlueNXYZ}
+    \else
+        \if@colorOptionGreen
+            \usecolortheme{GreenNXYZ}
+        \else
+            \if@colorOptionRed
+                \usecolortheme{RedNXYZ}
+            \fi
+        \fi
+    \fi
+\fi
+
+% Requirements
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+
+% Elements and settings
+\useinnertheme{NXYZ}
+\useoutertheme{NXYZ}
+
+\mode<all>

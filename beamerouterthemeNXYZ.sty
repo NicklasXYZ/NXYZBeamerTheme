@@ -1,5 +1,3 @@
-\RequirePackage{tikz}
-\RequirePackage{pgfplots}
 \pgfplotsset{%
     colormap={cleanslate}{%
       rgb255=(255,255,255)%
@@ -38,7 +36,7 @@
     \begin{tikzpicture}[remember picture, overlay, shift=(current page.south west), xshift=50mm, yshift=0mm]%
         \begin{scope}[x={(current page.south east)}, y={(current page.north west)}], z={(current page.north)}]%
             \begin{axis}[anchor = origin, rotate around={10:(current axis.origin)}, width=\the\paperwidth * 1.25, height=\the\paperheight * 1.75, hide axis, colormap name=cleanslate]%
-                \addplot3[mesh, samples=30, domain=-15:170, restrict y to domain=-15:100]{sin(x) * sin(y)};%
+                \addplot3[mesh, samples=30, domain=-14:170, restrict y to domain=-14:100, color=base-color-one!85!white, opacity=0.80]{sin(x) * sin(y)};%
             \end{axis}%
         \end{scope}%
     \end{tikzpicture}%

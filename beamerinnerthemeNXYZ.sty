@@ -1,0 +1,35 @@
+\defbeamertemplate*{title page}{NicklasXYZ}{
+    \vfill
+    {
+        \centering
+        \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle
+        \par
+    }
+    \vskip 1cm
+    {
+        \centering
+        \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle
+        \par
+    }
+    \vfill
+}
+
+% Set fonts
+\setbeamerfont{title}{size=\Huge}
+\setbeamerfont{subtitle}{size=\large}
+\setbeamerfont{block title}{size=\normalsize}
+
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{framesubtitle}{size=\small}
+
+\setbeamerfont{itemize/enumerate body}{}
+\setbeamerfont{itemize/enumerate subbody}{size=\scriptsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\scriptsize}
+
+% Define base templates
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{description item}{\color{base-color-four!75!white}\hspace{0.25cm}\insertdescriptionitem}
+\setbeamertemplate{itemize item}{\color{base-color-four!75!white}$\blacksquare$}
+
+\setbeamertemplate{section in toc}[square]
+\setbeamertemplate{subsection in toc}[square]
